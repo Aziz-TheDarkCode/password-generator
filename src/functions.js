@@ -10,13 +10,16 @@ class PasswordGenerator {
         var copyText = document.getElementById("generated-password-input")
         // copyText.setSelectionRange(0, 99999); /* For mobile devices */
         /* Copy the text inside the text field */
+        copyText.select();
+        document.execCommand('copy')
         $('.clipboard-toast')
         .removeClass('hidden');
             setTimeout(() => {
                 $('.clipboard-toast')
                 .addClass('hidden');
             },1000);
-        navigator.clipboard.writeText(copyText.value);
+        window.getSelection().removeAllRanges()
+
     }
      generatePasswordDictionary(){
         /* this function is used know which characters
